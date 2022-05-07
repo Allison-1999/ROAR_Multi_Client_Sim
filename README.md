@@ -46,10 +46,10 @@ pip install -r requirements.txt
 Step into the `Carla` folder you got in the Setup step 1
 , which contains the following files, the file pointed by the arrow is the simulator we need to run later.
 
-![](readme_figures/CarlaUE4.png)
+![](./readme_figures/CarlaUE4.png)
 
 Double click the `CarlaUE4`, then a simulator window with Berkeley minor map will be opened as followed:
-![](readme_figures/CarlaUE4_Window.png)
+![](./readme_figures/CarlaUE4_Window.png)
 
 ### 2. Start clients
 **You should get the same results as [this vedio](https://youtu.be/AVae--XGkb0)**
@@ -72,7 +72,8 @@ If the clients hasn't started as the demo vedio, please refer to the first entry
 * Four vehicles can be generated one by one into the same map.
 * Each vehicle will be controlled by one client to run around the map one loop and then stop near the starting point
 * The `information of all current vehicles` will be dynamically shown on the terminal every 200 frames (around 3 sec), including the id of each vehicle and their `location(x,y,z)`, `rotation(pitch, yall, roll)`, and `velocity(vx,vy,vz)`. [**Short Video for vehicle infos**](https://youtu.be/d2K9msfDdkc)
-![demo_picture](./readme_figures/picture_from_demo_video.png)
+
+![](./readme_figures/picture_from_demo_video.png)
 
 ## [Important] Common Problems and Solutions:
 1. Multiple configuration problems can make .bat file failed to start a new clients. The most common one is the server (berkeley minor map) doesn't run on `port 2000`.[**`Important`**] The server should run on localhost port `2000` and `2001`.
