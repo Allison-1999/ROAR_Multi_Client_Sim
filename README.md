@@ -135,7 +135,7 @@ world.player.set_autopilot(
 ```
 
 ### 4. Do Not Close the display of client directly! Please make sure close the clients by pressing `ctrl + c` in the terminal of each client (the one shows the vehicle infos log). 
-The client is responsible to destroy the vehicle model. If you close the client in a wrong way, the vehicle will still staying in the world without a client to control it. The following picture is an example of the results of this kind of problem. You can find an additional idel vehicle besides the four vehicles in the demo.
+The client is responsible to destroy the vehicle model. If you close the client in a wrong way (like press the cross button of terminal or client displayer), the vehicle will still staying in the world without a client to control it. The following picture is an example of the results of this kind of problem. You can find an additional idel vehicle besides the four vehicles in the demo.
 ![](./readme_figures/vehicle_infos.png)
 
 **If you still have other problems, please feel free to contact [jingjingwei@berkeley.edu](jingjingwei@berkeley.edu) with a title start with [Issue].**
