@@ -22,8 +22,8 @@ git clone https://github.com/Allison-1999/ROAR_Multi_Client_Sim.git
 ```
 2. Create a new virtual environment and activate it
 ```
-conda create -n roar_multi_client_3.7.12 python=3.7.12
-conda activate roar_multi_client_3.7.12
+conda create -n roar_multi_client_3.7.7 python=3.7.7
+conda activate roar_multi_client_3.7.7
 ```
 3. Install packages
 All dependencies have been put into requirements.txt
