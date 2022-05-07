@@ -85,7 +85,7 @@ python waypoints_generator.py
 and it will show you the following Error information:
 
 ```RuntimeError: time-out of 2000ms while waiting for the simulator, make sure the simulator is ready and connected to 127.0.0.1:2000```
-If you see this error, please delete all previous UE4 engine using Task Manager to make sure `port 2000` is available or reboot your PC.
+If you see this error, please delete all previous UE4 engine using Task Manager to make sure `port 2000` is available or restart your system.
 
 2. Please make sure close the clients by pressing `ctrl + c` in the terminal of each client (the one shows the vehicle infos log). The client is responsible to destroy the vehicle model. If you close the client in a wrong way, the vehicle will still staying in the world without a client to control it. The following picture is an example of the results of this kind of problem. You can find an additional idel vehicle besides the four vehicles in the demo.
 ![](./readme_figures/vehicle_infos.png)
