@@ -3,6 +3,10 @@
  ![multi-agent](./readme_figures/multi-agent.png)
 ## Author:
 * Jingjing Wei    (jingjingwei@berkeley.edu)
+
+# Instructions
+ Please follow the instructions below and also watch the [**vedio instruction**](https://youtu.be/noZPgLma6BA) I published on YouTube.
+
 ## Introduction:
 This instruction will guide you in detials to configure the environment. In the corresponding section of this instruction, I will tell you to see these vedios to know what to do and what is the expected results.
 The vedios appears in the instructions are also listed here.
@@ -11,9 +15,6 @@ The vedios appears in the instructions are also listed here.
 - [**Short Video for vehicle infos**](https://youtu.be/d2K9msfDdkc)
 
 The repo has been tested on multiple PC from high-end desktop to a common laptop on Windows 10. The common problem and solution has been listed in the Common Problems/Solutions and Notice section.
-
-# Instructions
- Please follow the instructions below and also watch the [**vedio instruction**](https://youtu.be/noZPgLma6BA) I published on YouTube.
 
 ## Environment Setup (Windows 10)
 
