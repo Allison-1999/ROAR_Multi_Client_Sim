@@ -1,4 +1,4 @@
-# Meaning of these folder and files
+# Meaning of these folder and files & How to record and use your own waypoints
 
 * `way_data`:               storing the maual labelled waypoints. According to the CARLA, a waypoint is generated densly along the way, and need to at least contain the `Location` and `Rotation` infos.
 * `waypoints_generator.py`: the special manual agent that can generate the waypoints by a human driver (write to waypoints.yaml by default). You can control the car using `up, down, left, right` key. **When you want to save the way, please press `S` key.**. If you want to use the waypoints you generated, please modify the path to waypoints in `auto_agent_run.py` from `waypoints_saved.yaml` to `waypoints.yaml`
