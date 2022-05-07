@@ -68,12 +68,10 @@ Then you should see new windows/clients (a window that should information of a v
 If the clients hasn't started as the demo vedio, please refer to the first entry under Common Problems and Solutions part below.
 
 ### 3. The expectation of the demo results:
-
+[**Demo Video Link**](https://youtu.be/AVae--XGkb0)
 * Four vehicles can be generated one by one into the same map.
 * Each vehicle will be controlled by one client to run around the map one loop and then stop near the starting point
 * The `information of all current vehicles` will be dynamically shown on the terminal every 200 frames (around 3 sec), including the id of each vehicle and their `location(x,y,z)`, `rotation(pitch, yall, roll)`, and `velocity(vx,vy,vz)`.
-
-
 
 
 ## [Important] Common Problems and Solutions:
