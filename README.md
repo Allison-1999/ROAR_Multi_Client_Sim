@@ -18,8 +18,10 @@
 
 ### Step 2: Install Anaconda
 https://docs.anaconda.com/anaconda/install/index.html
+[Important] Please use your `Anaconda Powershell Prompt`
 
 ### Step 3: Clone code and Setup Environment
+[Important] Please use your `Anaconda Powershell Prompt`
 1. Clone the repo
 ```
 git clone https://github.com/Allison-1999/ROAR_Multi_Client_Sim.git
@@ -87,7 +89,22 @@ and it will show you the following Error information:
 ```RuntimeError: time-out of 2000ms while waiting for the simulator, make sure the simulator is ready and connected to 127.0.0.1:2000```
 If you see this error, please delete all previous UE4 engine using Task Manager to make sure `port 2000` is available or restart your system.
 
-2. Please make sure close the clients by pressing `ctrl + c` in the terminal of each client (the one shows the vehicle infos log). The client is responsible to destroy the vehicle model. If you close the client in a wrong way, the vehicle will still staying in the world without a client to control it. The following picture is an example of the results of this kind of problem. You can find an additional idel vehicle besides the four vehicles in the demo.
+2. **Bind Error** RuntimeError: trying to create rpc server for traffic manager; but the system failed to create because of bind error.
+If you see the following information, please restart your system to kill any possible conflict python process.
+```
+Traceback (most recent call last):
+  File "auto_agent_run.py", line 991, in <module>
+    main()
+  File "auto_agent_run.py", line 983, in main
+    game_loop(args)
+  File "auto_agent_run.py", line 864, in game_loop
+    controller = KeyboardControl(world, args.autopilot)
+  File "auto_agent_run.py", line 277, in __init__
+    world.player.set_autopilot(self._autopilot_enabled)
+RuntimeError: trying to create rpc server for traffic manager; but the system failed to create because of bind error.
+```
+
+3. Please make sure close the clients by pressing `ctrl + c` in the terminal of each client (the one shows the vehicle infos log). The client is responsible to destroy the vehicle model. If you close the client in a wrong way, the vehicle will still staying in the world without a client to control it. The following picture is an example of the results of this kind of problem. You can find an additional idel vehicle besides the four vehicles in the demo.
 ![](./readme_figures/vehicle_infos.png)
 
 **If you still have other problems, please feel free to contact [jingjingwei@berkeley.edu](jingjingwei@berkeley.edu) with a title start with [Issue].**
