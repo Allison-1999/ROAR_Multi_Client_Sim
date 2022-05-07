@@ -231,7 +231,7 @@ class KeyboardControl(object):
         if isinstance(world.player, carla.Vehicle):
             self._control = carla.VehicleControl()
             self._lights = carla.VehicleLightState.NONE
-            world.player.set_autopilot(self._autopilot_enabled)
+            # world.player.set_autopilot(self._autopilot_enabled)
             world.player.set_light_state(self._lights)
         else:
             raise NotImplementedError("Actor type not supported")
@@ -249,9 +249,9 @@ class KeyboardControl(object):
                     return True
                 elif event.key == K_BACKSPACE:
                     if self._autopilot_enabled:
-                        world.player.set_autopilot(False)
+                        # world.player.set_autopilot(False)
                         world.restart()
-                        world.player.set_autopilot(True)
+                        # world.player.set_autopilot(True)
                     else:
                         world.restart()
                 elif event.key == K_F1:
@@ -301,7 +301,7 @@ class KeyboardControl(object):
                     world.destroy_sensors()
                     # disable autopilot
                     self._autopilot_enabled = False
-                    world.player.set_autopilot(self._autopilot_enabled)
+                    # world.player.set_autopilot(self._autopilot_enabled)
                     world.hud.notification("Replaying file 'manual_recording.rec'")
                     # replayer
                     client.replay_file("manual_recording.rec", world.recording_start, 0, 0)
@@ -332,7 +332,7 @@ class KeyboardControl(object):
                         self._control.gear = self._control.gear + 1
                     elif event.key == K_p and not pygame.key.get_mods() & KMOD_CTRL:
                         self._autopilot_enabled = not self._autopilot_enabled
-                        world.player.set_autopilot(self._autopilot_enabled)
+                        # world.player.set_autopilot(self._autopilot_enabled)
                         world.hud.notification(
                             'Autopilot %s' % ('On' if self._autopilot_enabled else 'Off'))
                     elif event.key == K_l and pygame.key.get_mods() & KMOD_CTRL:
