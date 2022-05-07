@@ -274,7 +274,7 @@ class KeyboardControl(object):
         if isinstance(world.player, carla.Vehicle):
             self._control = carla.VehicleControl()
             self._lights = carla.VehicleLightState.NONE
-            world.player.set_autopilot(self._autopilot_enabled)
+            # world.player.set_autopilot(self._autopilot_enabled)
             world.player.set_light_state(self._lights)
         else:
             raise NotImplementedError("Actor type not supported")
