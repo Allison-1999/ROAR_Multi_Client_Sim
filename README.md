@@ -1,6 +1,6 @@
 # ROAR_Multi_Client_Sim
  Support Multiple Clients Simulation in a single World(Berkeley Minor Map).
- Please follow the instructions below and also watch the [**vedio instruction I published to YouTube**](https://youtu.be/noZPgLma6BA)
+ Please follow the instructions below and also watch the [**vedio instruction**](https://youtu.be/noZPgLma6BA) I published on YouTube.
 
 ## Author:
 * Jingjing Wei    (jingjingwei@berkeley.edu)
