@@ -66,7 +66,7 @@ Then run the script:
 ```
 .\run_example.bat
 ```
-Then you should see new windows/clients (a window that should information of a vehicle and tracking a vehicle, can be called as Client in this environment) and vehicles are created one by one with 15 second interval to avoid collision.
+Then you should see new windows/clients (a window that should information of a vehicle and tracking a vehicle, can be called as Client in this environment) and vehicles are created one by one **with 15 second interval to avoid collision**. (Please follow the instructions, and check the [**vedio instruction**](https://youtu.be/noZPgLma6BA))
 If the clients hasn't started as the demo vedio, please refer to the first entry under Common Problems and Solutions part below.
 
 ### 3. The expectation of the demo results:
