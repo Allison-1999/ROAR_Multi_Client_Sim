@@ -869,7 +869,7 @@ def game_loop(args):
         clock = pygame.time.Clock()
         frame_id = 0
         while True:
-            clock.tick_busy_loop(120)
+            clock.tick_busy_loop(60)
             # read one event from the global event and provide it to the pygame.
             # if len(event_queue) != 0 and location_is_same(this_vehicle.get_location(), event_queue[0][0], event_queue[0][1], event_queue[0][2]): # when achieved the current frame
             if len(event_queue) != 0:
