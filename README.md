@@ -77,7 +77,7 @@ If the clients hasn't started as the demo vedio, please refer to the first entry
 
 ![](./readme_figures/picture_from_demo_video.png)
 
-### 4. The expectation of the demo results:
+### 4. Waypoint details and generator:
 If you want to dive deep in how to create the waypoints that match the CARLA rules, please check the readme under the client folder.
 
 ## [Important] Common Problems/Solutions and Notice:
