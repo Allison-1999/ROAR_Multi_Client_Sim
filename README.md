@@ -26,7 +26,6 @@ The repo has been tested on multiple PC from high-end desktop to a common laptop
 
 ### Step 2: Install Anaconda
 https://docs.anaconda.com/anaconda/install/index.html
-[Important] Please use your `Anaconda Powershell Prompt`
 
 ### Step 3: Clone code and Setup Environment
 [Important] Please use your `Anaconda Powershell Prompt`
@@ -53,8 +52,7 @@ pip install -r requirements.txt
 ## Demo (Windows 10)
 
 ### 1. Start the UE4 simulator (server)
-Step into the `Carla` folder you got in the Setup step 1
-, which contains the following files, the file pointed by the arrow is the simulator we need to run later.
+Step into the `Carla` folder you got in the Setup step 1, which contains the following files, the file pointed by the arrow is the simulator we need to run later.
 
 ![](./readme_figures/CarlaUE4.png)
 
