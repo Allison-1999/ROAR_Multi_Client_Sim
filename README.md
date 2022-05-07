@@ -12,7 +12,7 @@
 
 ### Step 1: Download the Berkeley minor map:
 - The zip file is [available here](https://drive.google.com/file/d/1hyI9SyjxFG7IV-c6RQxz26fs5LijRogY/view?usp=sharing). 
-- Please make sure you download the engine from this link, since there are multiple carla version and engines within ROAR project.
+- Please make sure **you download the engine from this link**, since there are multiple carla version and engines within ROAR project.
 - Please download it to a disk with more than 10GB available spaces, and then unzip the file.
 - After that, you can get a `Carla` folder.
 
