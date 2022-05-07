@@ -77,8 +77,11 @@ If the clients hasn't started as the demo vedio, please refer to the first entry
 
 ![](./readme_figures/picture_from_demo_video.png)
 
-## [Important] Common Problems and Solutions:
-1. Multiple configuration problems can make .bat file failed to start a new clients. The most common one is the server (berkeley minor map) doesn't run on `port 2000`.[**`Important`**] The server should run on localhost port `2000` and `2001`.
+### 4. Waypoint details and generator:
+If you want to dive deep in how to create the waypoints that match the CARLA rules, please check the readme under the client folder.
+
+## [Important] Common Problems/Solutions and Notice:
+### 1. Multiple configuration problems can make .bat file failed to start a new clients. The most common one is the server (berkeley minor map) doesn't run on `port 2000`.[**`Important`**] The server should run on localhost port `2000` and `2001`.
 
 In this case, you can try to run the 
 ```
@@ -89,8 +92,21 @@ and it will show you the following Error information:
 ```RuntimeError: time-out of 2000ms while waiting for the simulator, make sure the simulator is ready and connected to 127.0.0.1:2000```
 If you see this error, please delete all previous UE4 engine using Task Manager to make sure `port 2000` is available or restart your system.
 
-2. **Bind Error** RuntimeError: trying to create rpc server for traffic manager; but the system failed to create because of bind error.
-If you see the following information, please restart your system to kill any possible conflict python process.
+### 2. Camera shaking:
+That is because that, if your PC is too powerful, the simulator(server) rendering will much faster than the client (Like 110FPS on server and 60FPS on client). And since the server will send a snapshot of the entire world to each client, shaking may be caused by it.
+
+I have encountered this problem when test my code on some high-end PCs of my peers.
+
+Two solution to it:
+- First solution: Increase the number in the following line (#872 on auto_agent_run.py) to increase the FPS limitation of your client. So that client can digest the world snapshots from server.
+```
+clock.tick_busy_loop(120) # Please feel free to set this FPS limitation to a higher or lower number.
+```
+- Second solution: When running multiple auto_agent, just like in the demo which running four agent. The server rendering will slow down and you won't encounter this problem.
+
+
+### 3.If you see the following RuntimeError, you may use an old version of this repo. Please pull the newer version of this repo.
+
 ```
 Traceback (most recent call last):
   File "auto_agent_run.py", line 991, in <module>
@@ -103,8 +119,15 @@ Traceback (most recent call last):
     world.player.set_autopilot(self._autopilot_enabled)
 RuntimeError: trying to create rpc server for traffic manager; but the system failed to create because of bind error.
 ```
+This might because your PC runs too slow, so a service haven't been setup before the usage. I have encountered this problem when testing on a laptop. Since this autopilot and traffic module is not necessary for ROAR tasks (they are designed for CARLA urban simulation), so you can safely comment the related lines.
 
-3. Please make sure close the clients by pressing `ctrl + c` in the terminal of each client (the one shows the vehicle infos log). The client is responsible to destroy the vehicle model. If you close the client in a wrong way, the vehicle will still staying in the world without a client to control it. The following picture is an example of the results of this kind of problem. You can find an additional idel vehicle besides the four vehicles in the demo.
+You can search and comment the lines containing following code.
+```
+world.player.set_autopilot(
+```
+
+### 4. Do Not Close the display of client directly! Please make sure close the clients by pressing `ctrl + c` in the terminal of each client (the one shows the vehicle infos log). 
+The client is responsible to destroy the vehicle model. If you close the client in a wrong way, the vehicle will still staying in the world without a client to control it. The following picture is an example of the results of this kind of problem. You can find an additional idel vehicle besides the four vehicles in the demo.
 ![](./readme_figures/vehicle_infos.png)
 
 **If you still have other problems, please feel free to contact [jingjingwei@berkeley.edu](jingjingwei@berkeley.edu) with a title start with [Issue].**
