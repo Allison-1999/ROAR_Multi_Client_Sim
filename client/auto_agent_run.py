@@ -113,6 +113,12 @@ class World(object):
             id_list.append(vehicle.id)
         return id_list
 
+    # get current vehicle info
+    def get_current_vehicle_info(self):
+        all_vehicles = self.world.get_actors().filter('vehicle.*')
+        vehicles = [x for x in all_vehicles if x.id == world.player.id] # This id is the current vehicle id.
+        return vehicles[0]
+
     # get a specific vehicle's info by it's id
     def get_vehicle_info_by_id(self, id):
         vehicles = self.world.get_actors().filter('vehicle.*')
