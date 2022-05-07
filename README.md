@@ -89,20 +89,17 @@ and it will show you the following Error information:
 ```RuntimeError: time-out of 2000ms while waiting for the simulator, make sure the simulator is ready and connected to 127.0.0.1:2000```
 If you see this error, please delete all previous UE4 engine using Task Manager to make sure `port 2000` is available or restart your system.
 
-2. **Bind Error** RuntimeError: trying to create rpc server for traffic manager; but the system failed to create because of bind error.
-If you see the following information, please restart your system to kill any possible conflict python process.
+2. Camera shaking:
+That is because that, if your PC is too powerful, the simulator(server) rendering will much faster than the client (Like 110FPS on server and 60FPS on client). And since the server will send a snapshot of the entire world to each client, shaking may be caused by it.
+
+I have encountered this problem when test my code on some high-end PCs of my peers.
+
+Two solution to it:
+- First solution: Increase the number in the following line (#872 on auto_agent_run.py) to increase the FPS limitation of your client. So that client can digest the world snapshots from server.
 ```
-Traceback (most recent call last):
-  File "auto_agent_run.py", line 991, in <module>
-    main()
-  File "auto_agent_run.py", line 983, in main
-    game_loop(args)
-  File "auto_agent_run.py", line 864, in game_loop
-    controller = KeyboardControl(world, args.autopilot)
-  File "auto_agent_run.py", line 277, in __init__
-    world.player.set_autopilot(self._autopilot_enabled)
-RuntimeError: trying to create rpc server for traffic manager; but the system failed to create because of bind error.
+clock.tick_busy_loop(120) # Please feel free to set this FPS limitation to a higher or lower number.
 ```
+- Second solution: When running multiple auto_agent, just like in the demo which running four agent. The server rendering will slow down and you won't encounter this problem.
 
 3. Please make sure close the clients by pressing `ctrl + c` in the terminal of each client (the one shows the vehicle infos log). The client is responsible to destroy the vehicle model. If you close the client in a wrong way, the vehicle will still staying in the world without a client to control it. The following picture is an example of the results of this kind of problem. You can find an additional idel vehicle besides the four vehicles in the demo.
 ![](./readme_figures/vehicle_infos.png)
