@@ -71,8 +71,8 @@ If the clients hasn't started as the demo vedio, please refer to the first entry
 [**Demo Video Link**](https://youtu.be/AVae--XGkb0)
 * Four vehicles can be generated one by one into the same map.
 * Each vehicle will be controlled by one client to run around the map one loop and then stop near the starting point
-* The `information of all current vehicles` will be dynamically shown on the terminal every 200 frames (around 3 sec), including the id of each vehicle and their `location(x,y,z)`, `rotation(pitch, yall, roll)`, and `velocity(vx,vy,vz)`.
-
+* The `information of all current vehicles` will be dynamically shown on the terminal every 200 frames (around 3 sec), including the id of each vehicle and their `location(x,y,z)`, `rotation(pitch, yall, roll)`, and `velocity(vx,vy,vz)`. [**Short Video for vehicle infos**](https://youtu.be/d2K9msfDdkc)
+![demo_picture](./readme_figures/picture_from_demo_video.png)
 
 ## [Important] Common Problems and Solutions:
 1. Multiple configuration problems can make .bat file failed to start a new clients. The most common one is the server (berkeley minor map) doesn't run on `port 2000`.[**`Important`**] The server should run on localhost port `2000` and `2001`.
@@ -86,4 +86,7 @@ and it will show you the following Error information:
 ```RuntimeError: time-out of 2000ms while waiting for the simulator, make sure the simulator is ready and connected to 127.0.0.1:2000```
 If you see this error, please delete all previous UE4 engine using Task Manager to make sure `port 2000` is available or reboot your PC.
 
-If you still have other problems, please feel free to contact `jingjingwei@berkeley.edu` with a title start with [Issue].
+2. Please make sure close the clients by pressing `ctrl + c` in the terminal of each client (the one shows the vehicle infos log). The client is responsible to destroy the vehicle model. If you close the client in a wrong way, the vehicle will still staying in the world without a client to control it. The following picture is an example of the results of this kind of problem. You can find an additional idel vehicle besides the four vehicles in the demo.
+![](./readme_figures/Vehicle Infos.png)
+
+**If you still have other problems, please feel free to contact `[jingjingwei@berkeley.edu](jingjingwei@berkeley.edu)` with a title start with [Issue].**
