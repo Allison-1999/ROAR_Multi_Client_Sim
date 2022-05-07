@@ -14,7 +14,7 @@ The vedios appears in the instructions are also listed here.
 - [**Demo Video Link**](https://youtu.be/AVae--XGkb0)
 - [**Short Video for vehicle infos**](https://youtu.be/d2K9msfDdkc)
 
-The repo has been tested on multiple PC from high-end desktop to a common laptop on Windows 10. The common problem and solution has been listed in the Common Problems/Solutions and Notice section.
+The repo has been tested on multiple PC from high-end desktop to a common laptop on Windows 10(with GPU >= GTX 1060). The common problem and solution has been listed in the Common Problems/Solutions and Notice section. 
 
 ## Environment Setup (Windows 10)
 
