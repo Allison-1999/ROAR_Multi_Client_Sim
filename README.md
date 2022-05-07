@@ -1,5 +1,6 @@
 # ROAR_Multi_Client_Sim
  Support Multiple Clients Simulation in a single World(Berkeley Minor Map).
+ Please follow the instructions below and also watch the [**vedio instruction I published to YouTube**](https://youtu.be/noZPgLma6BA)
 
 ## Author:
 * Jingjing Wei    (jingjingwei@berkeley.edu)
@@ -23,6 +24,10 @@ git clone https://github.com/Allison-1999/ROAR_Multi_Client_Sim.git
 2. Create a new virtual environment and activate it
 ```
 conda create -n roar_multi_client_3.7.7 python=3.7.7
+```
+Press Y if terminal asks you to install the dependencies.
+Then
+```
 conda activate roar_multi_client_3.7.7
 ```
 3. Install packages
@@ -56,6 +61,7 @@ Then run the script:
 ```
 .\run_example.bat
 ```
+Then you should see new windows/clients (a window that should information of a vehicle and tracking a vehicle, can be called as Client in this environment) and vehicles are created one by one with 15 second interval to avoid collision.
 If the clients hasn't started as the demo vedio, please refer to the first entry under Common Problems and Solutions part below.
 
 ### 3. The expectation of the demo results:
@@ -68,9 +74,15 @@ If the clients hasn't started as the demo vedio, please refer to the first entry
 
 
 ## [Important] Common Problems and Solutions:
-1. 
+1. Multiple configuration problems can make .bat file failed to start a new clients. The most common one is the server (berkeley minor map) doesn't run on `port 2000`.[**`Important`**] The server should run on localhost port `2000` and `2001`.
 
-2.
+In this case, you can try to run the 
+```
+python waypoints_generator.py
+```
+and it will show you the following Error information:
+
 ```RuntimeError: time-out of 2000ms while waiting for the simulator, make sure the simulator is ready and connected to 127.0.0.1:2000```
+If you see this error, please delete all previous UE4 engine using Task Manager to make sure `port 2000` is available or reboot your PC.
 
-[**`Important`**] The server run on localhost port `2000` and `2001`. Client also been set to connect to these ports. If the Server doesn't run on the port `2000`.
+If you still have other problems, please feel free to contact `jingjingwei@berkeley.edu` with a title start with [Issue].
