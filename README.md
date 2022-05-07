@@ -91,3 +91,8 @@ If you see this error, please delete all previous UE4 engine using Task Manager 
 ![](./readme_figures/Vehicle Infos.png)
 
 **If you still have other problems, please feel free to contact [jingjingwei@berkeley.edu](jingjingwei@berkeley.edu) with a title start with [Issue].**
+
+
+## References:
+[1]Dosovitskiy, A., Ros, G., Codevilla, F., Lopez, A., & Koltun, V. (2017). Carla: An open urban driving simulator. In Conference on robot learning (pp. 1–16).
+
