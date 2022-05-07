@@ -105,8 +105,8 @@ class World(object):
 
     # vehicle information retriver APIs for debugging and future ROAR Reinforcement Learning Task
 
-    # get a specific vehicle's info by it's id
-    def get_all_vehicle_ids(self, id):
+    # get all vehicle's ids 
+    def get_all_vehicle_ids(self):
         vehicles = self.world.get_actors().filter('vehicle.*')
         id_list = []
         for vehicle in vehicles:
