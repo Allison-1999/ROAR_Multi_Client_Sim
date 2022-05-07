@@ -18,8 +18,10 @@
 
 ### Step 2: Install Anaconda
 https://docs.anaconda.com/anaconda/install/index.html
+[Important] Please use your `Anaconda Powershell Prompt`
 
 ### Step 3: Clone code and Setup Environment
+[Important] Please use your `Anaconda Powershell Prompt`
 1. Clone the repo
 ```
 git clone https://github.com/Allison-1999/ROAR_Multi_Client_Sim.git
