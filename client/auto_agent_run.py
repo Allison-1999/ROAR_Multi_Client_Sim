@@ -245,6 +245,7 @@ class World(object):
 
     def tick(self, clock):
         self.hud.tick(self, clock)
+        # This tick only show the time on HUD, won't communicate with server
 
     def render(self, display):
         self.camera_manager.render(display)
@@ -868,6 +869,7 @@ def game_loop(args):
         hud = HUD(args.width, args.height)
         world = World(client.get_world(), hud, args)
         controller = KeyboardControl(world, args.autopilot)
+        # Get the information of current vehicle
         all_vehicles = world.world.get_actors().filter('vehicle.*')
         vehicles = [x for x in all_vehicles if x.id == world.player.id]
         this_vehicle = vehicles[0]
@@ -883,10 +885,13 @@ def game_loop(args):
                 loc = carla.Location(tranform_data[0], tranform_data[1], tranform_data[2])
                 rot = carla.Rotation(tranform_data[3], tranform_data[4], tranform_data[5])
                 velocity = carla.Vector3D(tranform_data[6], tranform_data[7], tranform_data[8])
+                # set the status and action of current frame
                 this_vehicle.set_transform(carla.Transform(loc, rot))
                 this_vehicle.set_target_velocity(velocity)
+
                 if frame_id % 200 == 0:
                     print('\r \nVehicle Infos:\n' + json.dumps(world.get_all_vehicle_infos(), indent=4), flush=True)
+
                 # # update the pressed keys
                 # if event_data[3] == pygame.KEYDOWN:
                 #     if event_data[4] == K_UP:
