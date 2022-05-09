@@ -115,9 +115,7 @@ class World(object):
 
     # get current vehicle info
     def get_current_vehicle_info(self):
-        all_vehicles = self.world.get_actors().filter('vehicle.*')
-        vehicles = [x for x in all_vehicles if x.id == world.player.id] # This id is the current vehicle id.
-        return vehicles[0]
+        return self.get_vehicle_info_by_id(self.player.id)
 
     # get a specific vehicle's info by it's id
     def get_vehicle_info_by_id(self, id):
@@ -129,10 +127,6 @@ class World(object):
             vehicle_dict = {}
             vehicle_transform = vehicle.get_transform()
             vehicle_velocity = vehicle.get_velocity()
-            
-            vehicle_transform.location.x, vehicle_transform.location.y, vehicle_transform.location.z, 
-            vehicle_transform.rotation.pitch, vehicle_transform.rotation.yaw, vehicle_transform.rotation.roll, 
-            vehicle_velocity.x, vehicle_velocity.y, vehicle_velocity.z
 
             # location
             vehicle_dict['x'] = vehicle_transform.location.x
@@ -159,10 +153,6 @@ class World(object):
             vehicle_dict = {}
             vehicle_transform = vehicle.get_transform()
             vehicle_velocity = vehicle.get_velocity()
-            
-            vehicle_transform.location.x, vehicle_transform.location.y, vehicle_transform.location.z, 
-            vehicle_transform.rotation.pitch, vehicle_transform.rotation.yaw, vehicle_transform.rotation.roll, 
-            vehicle_velocity.x, vehicle_velocity.y, vehicle_velocity.z
 
             # location
             vehicle_dict['x'] = vehicle_transform.location.x
@@ -845,7 +835,7 @@ class CameraManager(object):
 # ==============================================================================
 
 def location_is_same(loc, x, y, z):
-    if (loc.x - x)**2 + (loc.y - y)**2 + (loc.z - z)**2 < 0.01: #TODO: location也不行，不知道为啥不行，前几个还能hit后面的就不行了，不知道是不是还是位置有误差。
+    if (loc.x - x)**2 + (loc.y - y)**2 + (loc.z - z)**2 < 0.01:
         print("Got a hit: ", loc)
         return True
     else:
@@ -871,6 +861,9 @@ def game_loop(args):
         controller = KeyboardControl(world, args.autopilot)
         # Get the information of current vehicle
         all_vehicles = world.world.get_actors().filter('vehicle.*')
+        if len(all_vehicles) == 0:
+            print("ERROR:  Failed to add new vehicle to the simulator, please close the server (UE4) and try again")
+            return
         vehicles = [x for x in all_vehicles if x.id == world.player.id]
         this_vehicle = vehicles[0]
 
@@ -890,7 +883,10 @@ def game_loop(args):
                 this_vehicle.set_target_velocity(velocity)
 
                 if frame_id % 200 == 0:
-                    print('\r \nVehicle Infos:\n' + json.dumps(world.get_all_vehicle_infos(), indent=4), flush=True)
+                    print('\r \nAll Vehicle Infos:\n' + json.dumps(world.get_all_vehicle_infos(), indent=4), flush=True)
+                    print('\r \nAll Vehicle Ids:\n' + json.dumps(world.get_all_vehicle_ids(), indent=4), flush=True)
+                    print('\r \nCurrent Infos:\n' + json.dumps(world.get_current_vehicle_info(), indent=4), flush=True)
+                    print('\r \nCurrent Infos (Get By Id):\n' + json.dumps(world.get_vehicle_info_by_id(this_vehicle.id), indent=4), flush=True)
 
                 # # update the pressed keys
                 # if event_data[3] == pygame.KEYDOWN:
